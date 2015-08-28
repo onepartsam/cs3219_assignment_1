@@ -3,8 +3,10 @@ package ADT;
 public class ADTMain {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		
+		ADTInput input = new ADTInput ();
+		
+		System.out.print(input.getIgnoredWords());
 	}
 
 }
