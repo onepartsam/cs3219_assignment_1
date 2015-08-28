@@ -5,40 +5,52 @@ import java.util.Scanner;
 
 public class ADTInput {
 	
-	final private String WELCOME_MESSAGE = "Thank you for choosing the Abstract Data Type method.";
-	private Scanner scanner;
-	private LinkedList<String> ignoredWords;
+	private final static String ENTER_MESSAGE = "%s #%d: ";
+	private final static String TITLE = "Title";
+	private final static String IGNORED_WORD = "Ignored Word";
 	
-	public ADTInput() {
-		
-		this.scanner = new Scanner (System.in);
-		System.out.println(WELCOME_MESSAGE);
-		
-		ignoredWords = wordsToIgnore ();
-	}
+	private static Scanner scanner;
 	
-	public LinkedList<String> getIgnoredWords () {
+	public static LinkedList<String> inputWordsToIgnore () {
 		
+		LinkedList<String> ignoredWords = inputLines(IGNORED_WORD);
 		return ignoredWords;
 	}
-	
-	private LinkedList<String> wordsToIgnore () {
+
+	public static LinkedList<String> inputTitles() {
 		
-		LinkedList<String> ignoredWords = new LinkedList<String> ();
-		String ignoreWord = "";
+		LinkedList<String> titles = inputLines(TITLE);
+		return titles;
+	}
+	
+	private static LinkedList<String> inputLines (String keyword) {
+		
+		LinkedList<String> lines = new LinkedList<String> ();
+		String line = "";
+		int index = 1;
+		
+		scanner = new Scanner (System.in);
 		
 		while (true) {
 			
-			ignoreWord = scanner.nextLine();
-			ignoreWord = ignoreWord.toLowerCase();
+			System.out.printf(ENTER_MESSAGE, keyword, index);
+			line = scanner.nextLine();
 			
-			if (ignoreWord.equals("<exit>")) {
+			line = stripSpaces(line);
+			
+			if (line.equals("<exit>")) {
 				break;
 			} else {
-				ignoredWords.add(ignoreWord);
+				lines.add(line);
+				index++;
 			}
 		}
 		
-		return ignoredWords;
+		return lines;
+	}
+
+	private static String stripSpaces(String line) {
+		
+		return line.replaceAll("\\s+", " ").trim();
 	}
 }
