@@ -1,6 +1,6 @@
-package Dataflow;
+package DataFlow;
 
-public class DataflowMain {
+public class DataFlowMain {
 
 //	public static void main(String[] args) {
 //		// TODO Auto-generated method stub

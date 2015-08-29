@@ -1,7 +1,7 @@
 
 import java.util.Scanner;
 
-import Dataflow.DataflowMain;
+import DataFlow.DataFlowMain;
 
 public class Main {
 	
@@ -61,7 +61,7 @@ public class Main {
 		//Initiates Objects
 		scanner = new Scanner(System.in);
 		//ADT adt_factor = new ADT();
-		DataflowMain method_dataflow = new DataflowMain();
+		DataFlowMain method_dataflow = new DataFlowMain();
 		
 		///////////////////////////////////////////////////////////
 		/////////////////////Main program//////////////////////////
