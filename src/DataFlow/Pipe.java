@@ -1,5 +1,6 @@
 package DataFlow;
 
+import java.util.LinkedList;
 
 /**
  * -------------------------------------------------------------------------
@@ -22,13 +23,16 @@ public class Pipe {
 	String strValue;
 	
 	String[] arrValue;
+	LinkedList<String> linkedListValue;
 			
 	//Constructors
 	public Pipe () {
 		intValue = 0;
 		strValue = "";
 		arrValue = null;
+		linkedListValue = null;
 	}
+	
 	
 	//Setters
 	public void setIntValue (int inVal)	{
@@ -43,6 +47,11 @@ public class Pipe {
 		arrValue = inVal;
 	}
 	
+	public void setLinkedListValue (LinkedList<String> inVal)	{
+		linkedListValue = inVal;
+	}
+	
+	
 	//Getters
 	public int getIntValue ()	{
 		return intValue;
@@ -56,5 +65,8 @@ public class Pipe {
 		return arrValue;
 	}
 	
+	public LinkedList<String> getLinkedListValue ()	{
+		return linkedListValue;
+	}
 	
 }
