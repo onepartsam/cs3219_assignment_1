@@ -1,35 +1,33 @@
 package ADT;
 
-import java.util.LinkedList;
-
 public class ADTCharacters {
 	
-	private LinkedList<String> ignoredWords;
-	private LinkedList<String> titles;
+	private String[] ignoredWords;
+	private String[] titles;
 
 	public ADTCharacters () { }
 	
 	
-	public LinkedList<String> getTitles() {
+	public String[] getTitles() {
 
 		return titles;
 	}
 	
-	public LinkedList<String> getIgnoredWords() {
+	public String[] getIgnoredWords() {
 
 		return ignoredWords;
 	}
 	
 	
-	public LinkedList<String> insertTitles(LinkedList<String> titles) {
-
+	public String[] insertTitles(String[] titles) {
+		
 		this.titles = titles;
-		return titles;
+		return this.titles;
 	}
 	
-	public LinkedList<String> insertIgnoredWords(LinkedList<String> ignoredWords) {
+	public String[] insertIgnoredWords(String[] ignoredWords) {
 
 		this.ignoredWords = ignoredWords;
-		return ignoredWords;
+		return this.ignoredWords;
 	}
 }
