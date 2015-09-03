@@ -1,13 +1,13 @@
 package DataFlow;
 
-public class Filter_CheckKeyword extends Filter {
+public class Filter_CheckIgnoreWords extends Filter {
 
 	//Class Variables & Objects
 	private static String[] keywords;
 	private static String title;
 	private static boolean isWordToIgnore;
 	
-	Filter_CheckKeyword(Pipe inPipe) {
+	Filter_CheckIgnoreWords(Pipe inPipe) {
 		super(inPipe);
 	}
 	

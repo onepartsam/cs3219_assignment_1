@@ -1,11 +1,11 @@
 package DataFlow;
 
-public class Filter_ProcessKeywords extends Filter {
+public class Filter_ProcessIgnoreWords extends Filter {
 
 	//Class Variables & Objects
 	private String[] keywords;
 	
-	Filter_ProcessKeywords(Pipe inPipe) {
+	Filter_ProcessIgnoreWords(Pipe inPipe) {
 		super(inPipe);
 	}
 	
