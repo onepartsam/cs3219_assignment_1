@@ -4,8 +4,8 @@ import java.util.LinkedList;
 
 public class DataFlowMain {
 
-	private final static String RESULT_MESSAGE = "\n\nOutput titles:";
-	private final static String TIME_TAKEN_MESSAGE = "Total time taken: %d ms\n\n";
+	private final static String RESULT_MESSAGE = "\n\nOutput titles:\n";
+	private final static String TIME_TAKEN_MESSAGE = "\nTotal time taken: %d ms\n\n";
 	
 	private DataSink finalTitleList;
 	private static DataSource dataSource_titles;

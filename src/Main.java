@@ -13,16 +13,16 @@ public class Main {
 	final static String ERROR_INPUT_MESSAGE = "Invalid input, please try again: ";
 	final static String SUCCESS_INPUT_MESSAGE = "You've selected option %d. Please standby.";
 	final static String CONTINUE_MESSAGE = "Do you want to conitnue? 1 to continue 2 to exit program:";
-	final static String SELECTION_MESSAGE = "Please select either one option to begin:" +
+	final static String SELECTION_MESSAGE = "\nPlease select either one option to begin:" +
 											"\n 1. Abstract Data Types Method" +
 											"\n 2. Pipes and Filter Method" +
 											"\n\nYour option: ";
-
+	final static String EXIT_MESSAGE = "Thank you for using our system. Goodbye.";
 	
 	// Class Variables
 	static int userOption = -1;
 	static int userContOption = -1;
-	static boolean debug_mode = true; //Set to false if debug mode is not needed
+	static boolean debug_mode = false; //Set to false if debug mode is not needed
 	static String keywords = "";
 	static String titles = "";
 	
@@ -146,6 +146,11 @@ public class Main {
 	
 			System.out.println("\n" + CONTINUE_MESSAGE);
 			userContOption = scanner.nextInt();
+			
+			if(userContOption != 1) {
+				System.out.println("\n" + EXIT_MESSAGE);
+				System.exit(0);
+			}
 		}
 	}
 
