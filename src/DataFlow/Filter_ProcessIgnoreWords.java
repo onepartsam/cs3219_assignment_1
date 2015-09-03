@@ -7,6 +7,7 @@ public class Filter_ProcessIgnoreWords extends Filter {
 	
 	Filter_ProcessIgnoreWords(Pipe inPipe) {
 		super(inPipe);
+		processData();
 	}
 	
 	@Override

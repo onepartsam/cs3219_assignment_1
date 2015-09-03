@@ -9,6 +9,7 @@ public class Filter_CheckOriginalTitle extends Filter {
 	
 	Filter_CheckOriginalTitle(Pipe inPipe) {
 		super(inPipe);
+		processData();
 	}
 	
 	@Override

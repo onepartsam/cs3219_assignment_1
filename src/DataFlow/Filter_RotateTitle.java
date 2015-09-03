@@ -9,6 +9,7 @@ public class Filter_RotateTitle extends Filter {
 	
 	Filter_RotateTitle(Pipe inPipe) {
 		super(inPipe);
+		processData();
 	}
 	
 	@Override

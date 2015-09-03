@@ -7,6 +7,7 @@ public class Filter_CaptureTitle extends Filter {
 	
 	Filter_CaptureTitle(Pipe inPipe) {
 		super(inPipe);
+		processData();
 	}
 	
 	@Override

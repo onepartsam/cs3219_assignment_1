@@ -9,6 +9,7 @@ public class Filter_CheckIgnoreWords extends Filter {
 	
 	Filter_CheckIgnoreWords(Pipe inPipe) {
 		super(inPipe);
+		processData();
 	}
 	
 	@Override
@@ -29,25 +30,25 @@ public class Filter_CheckIgnoreWords extends Filter {
 		//then its not a keyword thus it will return false otherwise if 
 		// it is not a word to ignore then it is a keyword then it will 
 		//return true
-		return !isWordToIgnore; 
+		return isWordToIgnore; 
 	}
 	
 	private String extractKeyword (String inTitle) {
 		
-		String extractedKeyword = "";
+		String[] extractedKeyword;
 		
-		extractedKeyword = inTitle.substring(0, inTitle.indexOf(' '));
-		return extractedKeyword;
+		extractedKeyword = inTitle.split(" ");
+		return extractedKeyword[0];
 	}
 	
 	private boolean checkIsWordToIgnore (String extractedKeyword) {
 		
 		//This is implemented for user friendliness non-function feature.
-		String lowerCaseExKeyword = extractedKeyword.toLowerCase();
+		String lowerCaseExKeyword = extractedKeyword.toLowerCase().trim();
 		
 		for(String word:keywords) {
 			
-			if(word.toLowerCase().equals(lowerCaseExKeyword)) {
+			if(word.toLowerCase().trim().equals(lowerCaseExKeyword)) {
 				return true;
 			}
 		}

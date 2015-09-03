@@ -10,6 +10,7 @@ public class Filter_AppendNewTitle extends Filter {
 	
 	Filter_AppendNewTitle(Pipe inPipe) {
 		super(inPipe);
+		processData();
 	}
 	
 	@Override
