@@ -29,7 +29,7 @@ public class Filter_SortAppendList extends Filter {
 	
 	public LinkedList<String> sortList(LinkedList<String> inList) {
 
-		LinkedList<String> newTempList = null;
+		LinkedList<String> newTempList = new LinkedList<String>();
 		LinkedList<String> tempList = inList;
 		
 		Collections.sort(tempList);
