@@ -28,7 +28,7 @@ public class Main {
 	
 	//Class Objects
 	static Scanner scanner = null;
-	static String[] keyword_list;
+	static String[] ignoredWordsList;
 	static String[] title_list;
 	
 	public static enum DataType {
@@ -72,7 +72,7 @@ public class Main {
 		//Handles Keywords to Ignore
 		System.out.print(REQUEST_KEYWORD_MESSAGE);
 		keywords = scanner.nextLine();
-		keyword_list = tokenizeString(keywords);
+		ignoredWordsList = tokenizeString(keywords);
 		
 		//Handles List of Titles
 		System.out.print(REQUEST_TITLE_MESSAGE);	
@@ -83,7 +83,7 @@ public class Main {
 		if(debug_mode) {
 			System.out.print("\n\n");
 			
-			for(String s:keyword_list) {
+			for(String s:ignoredWordsList) {
 				System.out.print(s+"\n");
 			}
 			
@@ -116,11 +116,11 @@ public class Main {
 				if(userOption == ArchiDesignType.ADT.getValue()) {
 					//For debugging purpose
 					System.out.printf(SUCCESS_INPUT_MESSAGE, userOption-ARCHI_TYPE_START_INDEX);
-					method_dataflow.dummyFunction(title_list); //this function will then process and 
-																//then will return the output and everything
 					
 				}else if(userOption == ArchiDesignType.DATAFLOW.getValue()){
 					//For debugging purpose
+					DataFlowMain dataFlow = new DataFlowMain();
+					dataFlow.run(title_list, ignoredWordsList);
 					System.out.printf(SUCCESS_INPUT_MESSAGE, userOption-ARCHI_TYPE_START_INDEX);					
 				} 
 								
