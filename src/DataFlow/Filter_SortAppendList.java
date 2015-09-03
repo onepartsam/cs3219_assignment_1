@@ -10,12 +10,13 @@ public class Filter_SortAppendList extends Filter {
 	
 	Filter_SortAppendList(Pipe inPipe) {
 		super(inPipe);
+		processData();
 	}
 	
 	@Override
 	public void processData() {
 		
-		newList = pipe.getLinkedListValue();
+		newList = sortList(pipe.getLinkedListValue());
 		
 	}
 	
@@ -45,8 +46,9 @@ public class Filter_SortAppendList extends Filter {
 			//Changes the rest to lower case
 			outArray[1] = outArray[1].toLowerCase();
 			
-			//Appends first word to the back of the string
-			tempNewTitle = outArray[1] + " " + outArray[0]; 
+			//Appends bck capitalized word
+			tempNewTitle = outArray[0] + " " + outArray[1] ; 
+			
 			
 			newTempList.add(tempNewTitle);
 		}
