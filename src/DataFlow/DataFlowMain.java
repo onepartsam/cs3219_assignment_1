@@ -4,11 +4,9 @@ import java.util.LinkedList;
 
 public class DataFlowMain {
 
-	public void dummyFunction(String[] titleArray){
-		
-		
-		
-	}
+	private final static String RESULT_MESSAGE = "\n\nOutput titles:";
+	private final static String TIME_TAKEN_MESSAGE = "Total time taken: %d ms\n\n";
+	
 	private DataSink finalTitleList;
 	private static DataSource dataSource_titles;
 	private static DataSource dataSource_ignoreWords;
@@ -45,6 +43,8 @@ public class DataFlowMain {
 		//Loop through each title
 		for(String s : pipe_processedTitles.getArrValue()) {
 			
+			String original = s;
+			
 			while(true) {
 				
 				//Init pipe with current original title
@@ -53,7 +53,7 @@ public class DataFlowMain {
 				
 				//Capture original title
 				Filter_CaptureTitle captureOriginalTitle = 
-						new Filter_CaptureTitle(pipe_processedTitles);	
+						new Filter_CaptureTitle(pipe_captureTitle);	
 				
 				//To check for words to ignore
 				Pipe pipe_ToCheckIgnoreWords = new Pipe();
@@ -76,6 +76,7 @@ public class DataFlowMain {
 							new Filter_AppendNewTitle(pipe_appendNewTitle);
 					
 					kwic_index = appendNewTitle.getProcessedData();
+					//kwic_index.add(pipe_ToCheckIgnoreWords.getStrValue());
 				}
 				
 				//Rotate Title aka Circular Shift the title
@@ -83,11 +84,12 @@ public class DataFlowMain {
 				pipe_toRotateTitle.setStrValue(pipe_ToCheckIgnoreWords.getStrValue());
 				
 				Filter_RotateTitle rotateTitle = new Filter_RotateTitle(pipe_toRotateTitle);
+				//System.out.println(rotateTitle.getProcessedData());
 				
 				Pipe pipe_fromRotateTitle = new Pipe();
-				String[] checkTitles = null;
-				checkTitles[0] = s;
-				checkTitles[1] = rotateTitle.getProcessedData();
+				String[] checkTitles = {original, rotateTitle.getProcessedData()};
+//				checkTitles[0] = s;
+//				checkTitles[1] = rotateTitle.getProcessedData();
 				pipe_fromRotateTitle.setArrValue(checkTitles);
 				
 				//Check if is original title
@@ -96,8 +98,14 @@ public class DataFlowMain {
 				
 				//If is original title
 				if(checkOriTitle.getProcessedData()) {
+					
+					//System.out.println("test");
 					break;
 				}
+				
+				//System.out.println("test1");
+				s = rotateTitle.getProcessedData();
+				//System.out.println(s);
 			}
 			
 			//Rotate title
@@ -122,10 +130,11 @@ public class DataFlowMain {
 		
 		DataSink dataSink =  new DataSink(fromSort_toDataSink);
 		
+		System.out.println(RESULT_MESSAGE);
 		dataSink.outputData();
 		
 		//Output timetaken
-		System.out.println(startTime);
+		System.out.printf(TIME_TAKEN_MESSAGE, System.currentTimeMillis() - startTime);
 		
 		
 	}
