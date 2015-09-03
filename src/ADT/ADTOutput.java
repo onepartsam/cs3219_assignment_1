@@ -4,9 +4,14 @@ import java.util.Collections;
 import java.util.LinkedList;
 
 public class ADTOutput {
-	
-	private final static String RESULT_MESSAGE = "\n\nOutput titles:";
-	private final static String TIME_TAKEN_MESSAGE = "Total time taken: %d ms\n\n";
+
+	private final static String DIVIDER =
+			"\n===============================";
+	private final static String RESULT_MESSAGE =
+			DIVIDER + "\nADT Output titles:" + DIVIDER;
+	private final static String TIME_TAKEN_MESSAGE =
+			"Total time taken: %d ms\n";
+	private final static String BULLET = " > ";
 	
 	public static void output(LinkedList<String> titles, long startTime) {
 		
@@ -21,7 +26,7 @@ public class ADTOutput {
 	private static void displayTitles(LinkedList<String> titles) {
 
 		for (int i = 0; i < titles.size(); i++) {
-			System.out.println(" > " + titles.get(i));
+			System.out.println(BULLET + titles.get(i));
 		}
 	}
 

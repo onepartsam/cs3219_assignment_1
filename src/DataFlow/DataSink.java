@@ -4,6 +4,8 @@ import java.util.LinkedList;
 
 public class DataSink {
 	
+	private final String BULLET = " > ";
+	
 	private LinkedList<String> data;
 	
 	DataSink(Pipe inPipe){
@@ -15,7 +17,7 @@ public class DataSink {
 	public void outputData (){
 		
 		for(String s: data){
-			System.out.println(s);
+			System.out.println(BULLET + s);
 		}
 
 	}
