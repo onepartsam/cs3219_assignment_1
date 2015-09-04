@@ -10,7 +10,7 @@ public class ADTMain {
 
 		long startTime = System.currentTimeMillis();
 
-		ADTCharacters characters = new ADTCharacters();
+		ADTStorage characters = new ADTStorage();
 		LinkedList<String> processed_all_titles = new LinkedList<String>();
 		LinkedList<String> processed_titles;
 		String title = "";

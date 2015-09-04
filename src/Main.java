@@ -40,12 +40,8 @@ public class Main {
 
 	public static enum ArchiDesignType {
 
-		START_OF_LIST(ARCHI_TYPE_START_INDEX), // DO NOT REMOVE, ADD NEW
-												// STRUCTURES BELOW
-		ADT(101), DATAFLOW(102), BOTH(103), END_OF_LIST(104); // DO NOT REMOVE,
-																// ADD NEW
-																// STRUCTURES
-																// ABOVE
+		START_OF_LIST(ARCHI_TYPE_START_INDEX), 
+		ADT(101), DATAFLOW(102), BOTH(103), END_OF_LIST(104); 
 
 		private int value;
 
@@ -102,22 +98,11 @@ public class Main {
 
 			userOption = scanner.nextInt();
 			userOption += ARCHI_TYPE_START_INDEX;
-
-			// ***TO SAM - Sorry i change your code for the program's
-			// expandability***//
-
+			
 			if (userOption <= ArchiDesignType.START_OF_LIST.getValue()
 					|| userOption >= ArchiDesignType.END_OF_LIST.getValue()) {
 				System.out.print(ERROR_INPUT_MESSAGE);
 			} else {
-
-				// ArchiDesignType userChoice = ArchiDesignType()[userOption];
-
-				// Calls relative method to user's input choice //DUMMY FUNCTION
-				// BELOW - REMOVE WHEN SUBMISSION
-				// For debug
-				// System.out.printf(SUCCESS_INPUT_MESSAGE,
-				// userOption-ARCHI_TYPE_START_INDEX);
 				if (userOption == ArchiDesignType.ADT.getValue()) {
 
 					ADTMain.run(title_list, ignoredWordsList);
@@ -129,8 +114,8 @@ public class Main {
 				} else if (userOption == ArchiDesignType.BOTH.getValue()) {
 
 					DataFlowMain dataFlow = new DataFlowMain();
-					dataFlow.run(title_list, ignoredWordsList);
 					ADTMain.run(title_list, ignoredWordsList);
+					dataFlow.run(title_list, ignoredWordsList);
 				}
 			}
 

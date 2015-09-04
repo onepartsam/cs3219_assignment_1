@@ -2,12 +2,12 @@
 
 package ADT;
 
-public class ADTCharacters {
+public class ADTStorage {
 
 	private String[] ignoredWords;
 	private String[] titles;
 
-	public ADTCharacters() {
+	public ADTStorage() {
 	}
 
 	public String[] getTitles() {
