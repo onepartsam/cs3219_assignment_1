@@ -1,3 +1,5 @@
+// @author  Bay Chuan Wei
+
 package DataFlow;
 
 import java.util.LinkedList;
@@ -80,7 +82,6 @@ public class DataFlowMain {
 							new Filter_AppendNewTitle(pipe_appendNewTitle);
 					
 					kwic_index = appendNewTitle.getProcessedData();
-					//kwic_index.add(pipe_ToCheckIgnoreWords.getStrValue());
 				}
 				
 				//Rotate Title aka Circular Shift the title
@@ -88,12 +89,10 @@ public class DataFlowMain {
 				pipe_toRotateTitle.setStrValue(pipe_ToCheckIgnoreWords.getStrValue());
 				
 				Filter_RotateTitle rotateTitle = new Filter_RotateTitle(pipe_toRotateTitle);
-				//System.out.println(rotateTitle.getProcessedData());
 				
 				Pipe pipe_fromRotateTitle = new Pipe();
 				String[] checkTitles = {original, rotateTitle.getProcessedData()};
-//				checkTitles[0] = s;
-//				checkTitles[1] = rotateTitle.getProcessedData();
+
 				pipe_fromRotateTitle.setArrValue(checkTitles);
 				
 				//Check if is original title
@@ -103,24 +102,11 @@ public class DataFlowMain {
 				//If is original title
 				if(checkOriTitle.getProcessedData()) {
 					
-					//System.out.println("test");
 					break;
 				}
 				
-				//System.out.println("test1");
 				s = rotateTitle.getProcessedData();
-				//System.out.println(s);
 			}
-			
-			//Rotate title
-			
-			//Check if Original Title
-			//if not then continue check for words to ignore
-			//if original check if title = last title in given list
-				//if not then go ti step 3 capture origin title
-				//if yes thne sortAppendList
-			
-			
 		}
 		
 		Pipe toSortAppendList = new Pipe();

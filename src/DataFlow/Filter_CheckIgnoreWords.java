@@ -1,3 +1,5 @@
+// @author  Bay Chuan Wei
+
 package DataFlow;
 
 public class Filter_CheckIgnoreWords extends Filter {

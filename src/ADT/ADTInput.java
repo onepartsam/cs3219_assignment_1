@@ -1,3 +1,5 @@
+// @author  Samuel Lim
+
 package ADT;
 
 import java.util.LinkedList;

@@ -1,3 +1,4 @@
+// @author  Samuel Lim, Bay Chuan Wei
 
 import java.util.Scanner;
 
@@ -61,7 +62,6 @@ public class Main {
 
 		// Initiates Objects
 		scanner = new Scanner(System.in);
-		// ADT adt_factor = new ADT();
 		DataFlowMain method_dataflow = new DataFlowMain();
 
 		///////////////////////////////////////////////////////////
@@ -128,29 +128,10 @@ public class Main {
 					dataFlow.run(title_list, ignoredWordsList);
 				} else if (userOption == ArchiDesignType.BOTH.getValue()) {
 
-					
 					DataFlowMain dataFlow = new DataFlowMain();
-					dataFlow.run(title_list, ignoredWordsList);ADTMain.run(title_list, ignoredWordsList);
+					dataFlow.run(title_list, ignoredWordsList);
+					ADTMain.run(title_list, ignoredWordsList);
 				}
-
-				// ------------KIV-----------------------------------------------------------//
-				// switch(userOption){
-				//
-				// case ADT:
-				// //For debugging purpose
-				// System.out.printf(SUCCESS_INPUT_MESSAGE, userOption);
-				// break;
-				// case DATAFLOW:
-				// //For debugging purpose
-				// System.out.printf(SUCCESS_INPUT_MESSAGE, userOption);
-				// break;
-				//
-				// default:
-				// System.out.print(ERROR_INPUT_MESSAGE);
-				// break;
-				// }
-				//
-				// ------------KIV------------------------------------------------------------//
 			}
 
 			System.out.println("\n" + CONTINUE_MESSAGE);

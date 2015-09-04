@@ -1,3 +1,5 @@
+// @author  Samuel Lim
+
 package ADT;
 
 import java.util.LinkedList;
@@ -5,7 +7,7 @@ import java.util.LinkedList;
 public class ADTMain {
 
 	public static void run(String[] titles, String[] ignored_words) {
-		
+
 		long startTime = System.currentTimeMillis();
 
 		ADTCharacters characters = new ADTCharacters();
@@ -22,7 +24,7 @@ public class ADTMain {
 			processed_titles = ADTCircularShift.process(title, characters.getIgnoredWords());
 			processed_all_titles.addAll(processed_titles);
 		}
-		
+
 		ADTOutput.output(processed_all_titles, startTime);
 	}
 }

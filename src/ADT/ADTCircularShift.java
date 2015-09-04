@@ -1,3 +1,5 @@
+// @author  Samuel Lim
+
 package ADT;
 
 import java.util.Arrays;
@@ -6,7 +8,7 @@ import java.util.LinkedList;
 public class ADTCircularShift {
 
 	public static LinkedList<String> process(String title, String[] ignored_words) {
-		
+
 		title = cleanupTitle(title);
 		LinkedList<String> list_ignored_words = new LinkedList<String>(Arrays.asList(ignored_words));
 
@@ -37,7 +39,7 @@ public class ADTCircularShift {
 
 			shift(words);
 		}
-		
+
 		return processed_titles;
 	}
 
